@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Volunteers - Charity Foundation{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Volunteers</h1>
+    
+    <div class="table-responsive">
+        {% if volunteers %}
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Skills</th>
+                    <th>Experience</th>
+                    <th>Availability</th>
+                    <th>Status</th>
+                    <th>Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for volunteer in volunteers %}
+                <tr>
+                    <td>{{ volunteer.first_name }} {{ volunteer.last_name }}</td>
+                    <td>{{ volunteer.email }}</td>
+                    <td><span class="badge bg-primary">{{ volunteer.get_skills_display }}</span></td>
+                    <td>{{ volunteer.experience_years }} years</td>
+                    <td>{{ volunteer.get_availability_display }}</td>
+                    <td>
+                        {% if volunteer.is_active %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-danger">Inactive</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ volunteer.joined_date|date:"M d, Y" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="alert alert-info">No volunteers found. <a href="/admin/">Add one from the admin panel.</a></div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

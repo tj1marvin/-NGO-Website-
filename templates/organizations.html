@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Chapters - Charity Foundation{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Our Chapters</h1>
+    
+    <div class="row">
+            {% if organizations %}
+            {% for org in organizations %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">{{ org.name }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Location:</strong> {{ org.city }}, {{ org.country }}</p>
+                        <p class="card-text"><strong>Founded:</strong> {{ org.founded_date|date:"Y" }}</p>
+                        <p class="card-text"><strong>Email:</strong> {{ org.email }}</p>
+                        <p class="card-text"><strong>Phone:</strong> {{ org.phone }}</p>
+                        {% if org.website %}
+                        <p class="card-text"><a href="{{ org.website }}" target="_blank" class="btn btn-sm btn-primary">Visit Website</a></p>
+                        {% endif %}
+                        <p class="card-text text-muted">{{ org.description|truncatewords:20 }}</p>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <a href="#" class="btn btn-sm btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info">No organizations found. <a href="/admin/">Add one from the admin panel.</a></div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

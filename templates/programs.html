@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Programs - Charity Foundation{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Our Programs</h1>
+    
+    <div class="row">
+        {% if programs %}
+            {% for program in programs %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">{{ program.name }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Organization:</strong> {{ program.organization.name }}</p>
+                        <p class="card-text"><strong>Category:</strong> <span class="badge bg-secondary">{{ program.get_category_display }}</span></p>
+                        <p class="card-text"><strong>Status:</strong> <span class="badge bg-info">{{ program.get_status_display }}</span></p>
+                        <p class="card-text"><strong>Budget:</strong> ${{ program.budget }}</p>
+                        <p class="card-text"><strong>Target Beneficiaries:</strong> {{ program.target_beneficiaries }}</p>
+                        <p class="card-text text-muted">{{ program.description|truncatewords:20 }}</p>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <a href="#" class="btn btn-sm btn-secondary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info">No programs found. <a href="/admin/">Add one from the admin panel.</a></div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

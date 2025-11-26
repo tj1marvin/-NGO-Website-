@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Charity Foundation{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="hero-section"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'images/hero-banner.jpg' %}'); background-size: cover; background-position: center;">
+    <div class="container">
+        <h1>Charity Foundation</h1>
+        <p>Helping communities thrive through programs in health, education, and emergency relief.</p>
+        <a href="/programs/" class="btn btn-light btn-lg me-2">Explore Programs</a>
+        <a href="/volunteers/" class="btn btn-outline-light btn-lg">Get Involved</a>
+    </div>
+</div>
+
+<div class="container py-5">
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Our Impact</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="stats-box">
+                    <h3>3</h3>
+                    <p>Programs</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-box">
+                    <h3>2</h3>
+                    <p>Chapters</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-box">
+                    <h3>25k+</h3>
+                    <p>People Helped</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-box">
+                    <h3>$55k+</h3>
+                    <p>Donations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Our Community in Action</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <img src="{% static 'images/community-programs.jpg' %}" alt="Community Programs"
+                    class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6 mb-4">
+                <img src="{% static 'images/education-impact.jpg' %}" alt="Education Impact"
+                    class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-center mb-4">What We Do</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">📋 Community Programs</h5>
+                        <p class="card-text">Programs that deliver healthcare, learning and relief services where they
+                            are needed most.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">🎯 Measurable Impact</h5>
+                        <p class="card-text">We measure outcomes and publish results so donors and communities can see
+                            real impact.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">👥 Volunteer Engagement</h5>
+                        <p class="card-text">Engage local volunteers to deliver programs and build local capacity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">💰 Donations</h5>
+                        <p class="card-text">Secure and transparent donation processing to fund critical work.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">📊 Accountability</h5>
+                        <p class="card-text">We publish program outcomes and financials for transparency and trust.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">📅 Community Events</h5>
+                        <p class="card-text">Local events, health camps, and community meetings to strengthen support
+                            networks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Donate - Charity Foundation{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">Support Our Mission</h1>
+    <p class="lead">Your generous contribution helps us provide essential services to communities in need.</p>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>How to Donate</h3>
+            <ul>
+                <li>Online payment via credit/debit card</li>
+                <li>Bank transfer (details below)</li>
+                <li>In‑kind donations (goods, services)</li>
+            </ul>
+            <p><strong>Bank Details:</strong><br>
+                Account Name: Charity Foundation<br>
+                IBAN: GB00CHARITY12345678<br>
+                SWIFT: CHARGB22</p>
+        </div>
+        <div class="col-md-6">
+            <h3>Make a Secure Online Donation</h3>
+            <form method="post" action="#" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount (USD)</label>
+                    <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+                    <div class="invalid-feedback">Please enter a donation amount.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email (optional)</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <button type="submit" class="btn btn-primary">Donate Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
