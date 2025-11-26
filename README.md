@@ -91,7 +91,7 @@ ngo_project/
 
 1. **Clone the repository:**
 ```bash
-cd /Users/mac/Documents/3\ year/NGO
+cd /NGO
 ```
 
 2. **Create a virtual environment:**
